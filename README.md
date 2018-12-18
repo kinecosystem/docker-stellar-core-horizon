@@ -2,6 +2,9 @@
 
 Note: this is fork of the original repo. to build this docker image you'll need to get your hands on the binaries (horizon, core). those get copied from the local directory into the docker image. The original repo wget those binaries, but we dont.
 
+copying the binaries from a docke image to the localhost:
+if you have new docker images, run them and use 'docker cp <containerId>:/usr/local/bin/<stellar-core|horizon> ./' to copy them locally.
+
 This project provides a simple way to incorporate stellar-core and horizon into your private infrastructure, provided that you use docker.
 
 This image provide a default, non-validating, ephemeral configuration that should work for most developers.  By configuring a container using this image with a host-based volume (described below in the "Usage" section) an operator gains access to full configuration customization and persistence of data.
