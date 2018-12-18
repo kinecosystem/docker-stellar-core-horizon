@@ -1,9 +1,16 @@
 # Stellar Quickstart Docker Image
 
-Note: this is fork of the original repo. to build this docker image you'll need to get your hands on the binaries (horizon, core). those get copied from the local directory into the docker image. The original repo wget those binaries, but we dont.
+### Overview
+This is fork of the original repo. The differences between the original repo and this one are:
+- the configurion of testnet, pubnet
+- some changes to how this image can be built.
 
-copying the binaries from a docke image to the localhost:
-if you have new docker images, run them and use 'docker cp <containerId>:/usr/local/bin/<stellar-core|horizon> ./' to copy them locally.
+Building: 
+to build this docker image you'll need to get your hands on the binaries (horizon, core). those get copied from the local directory into the docker image. The original repo wget those binaries, but we dont.
+
+Tip: to extract the apps from an already-built docker image, run them locally and use 'docker cp <containerId>:/usr/local/bin/<stellar-core|horizon> ./' to copy them to the localhost.
+  
+# Original repo readme starts here:
 
 This project provides a simple way to incorporate stellar-core and horizon into your private infrastructure, provided that you use docker.
 
