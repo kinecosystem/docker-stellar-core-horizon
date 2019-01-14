@@ -28,6 +28,7 @@ function main() {
 	copy_defaults
 	init_db
 	init_stellar_core
+	sleep 10
 	init_horizon
 	copy_pgpass
 
@@ -208,6 +209,20 @@ function init_db() {
 }
 
 function init_stellar_core() {
+	# override catchup:
+	if [[ -z "${CATCHUP_RECENT_NUM}" ]]; then
+	  # use default value
+	  echo 'CATCHUP_RECENT_NUM is not defined. defaulting to 1000'
+	  export CATCHUP_RECENT_NUM=100
+	else
+	  # use user-defined value from env
+	  echo 'setting catchup to '${CATCHUP_RECENT_NUM}
+	fi
+
+	# override the catchup:
+	cp /opt/stellar/core/etc/stellar-core.cfg /opt/stellar/core/etc/stellar-core.cfg.tmpl
+	envsubst '$CATCHUP_RECENT_NUM' < /opt/stellar/core/etc/stellar-core.cfg.tmpl > /opt/stellar/core/etc/stellar-core.cfg
+	
 	if [ -f $COREHOME/.quickstart-initialized ]; then
 		echo "core: already initialized"
 

@@ -1,3 +1,3 @@
-docker build -t kinecosystem/kin-quickstart:v1.0.0_catchup
-docker push kinecosystem/kin-quickstart:v1.0.0_catchup
+docker build -t kinecosystem/kin-quickstart:v2.0.2_catchup_wl .
+docker push kinecosystem/kin-quickstart:v2.0.2_catchup_wl
 

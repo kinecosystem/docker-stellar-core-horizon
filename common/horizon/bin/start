@@ -12,6 +12,12 @@ while ! stellar-core --conf /opt/stellar/core/etc/stellar-core.cfg -c info &> /d
   sleep 1
 done
 
+# add an artifical sleep here: give the core some time to sync
+while ! curl localhost:11626/info|grep 'Synced'; do
+	echo "waiting for core to be synced"
+	sleep 1
+done
+
 echo "starting horizon..."
 set -e
 exec $DIR/horizon

@@ -21,6 +21,7 @@ RUN /dependencies
 COPY ./stellar-core  /usr/local/bin/stellar-core
 COPY ./horizon  /usr/local/bin/horizon
 
+RUN ["apt-get", "install", "gettext-base"]
 RUN ["mkdir", "-p", "/opt/stellar"]
 RUN ["touch", "/opt/stellar/.docker-ephemeral"]
 
