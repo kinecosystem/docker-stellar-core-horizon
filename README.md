@@ -1,5 +1,10 @@
 # Stellar Quickstart Docker Image
 
+TL;DR: 
+run this with:
+
+docker run -d -p 8000:8000  -e CATCHUP_RECENT_NUM=100000 -e HISTORY_RETENTION_COUNT=90000 kinecosystem/kin-quickstart:v2.0.3_catchup_wl --testnet
+
 ### Overview
 This is fork of the original repo. The differences between the original repo and this one are:
 - the configurion of testnet, pubnet
