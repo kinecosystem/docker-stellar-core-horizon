@@ -10,6 +10,9 @@ to build this docker image you'll need to get your hands on the binaries (horizo
 
 Tip: to extract the apps from an already-built docker image, run them locally and use 'docker cp <containerId>:/usr/local/bin/<stellar-core|horizon> ./' to copy them to the localhost.
   
+a note regarding security upgrade:
+the images generated here is based on the Stellar/Base image which in turn is based on Debian's Stretch.
+  
 # Original repo readme starts here:
 
 This project provides a simple way to incorporate stellar-core and horizon into your private infrastructure, provided that you use docker.
