@@ -5,6 +5,12 @@ run an ephemeral horizon + core node on testnet with the following docker comman
 
     docker run -d -p 8000:8000  -e CATCHUP_RECENT_NUM=100000 -e HISTORY_RETENTION_COUNT=90000 kinecosystem/kin-quickstart:v2.0.3_catchup_wl --testnet
 
+in this context, ephemeral means that once the docker image is removed, the entire state will be removed as well. To run a persistant state, map some folder on the local HD into the docker image, like so:
+
+    docker run  -it -v /tmp/volume:/opt/stellar  -p 8000:8000 -e CATCHUP_RECENT_NUM=10000  -e HISTORY_RETENTION_COUNT=90000 kinecosystem/kin-quickstart:v2.0.3_catchup_wl --testnet
+    
+note that in this case, we're not running the docker image in detached (-d) mode, because the user is prompted to input the SQL DB password interactively. Once the password is set (and confirmed), you can detach the docker with Ctrl-p Ctrl-q . Both the SQL DB and the internal state will be saved on the mapped folder (/tmp/volume in this case).
+
 ### Overview
 This is fork of the original repo. The differences between the original repo and this one are:
 - the configurion of testnet, pubnet
