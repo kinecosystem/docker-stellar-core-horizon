@@ -1,3 +1,7 @@
+# DEPRECATED
+
+Please see Docker quickstart image under https://github.com/kinecosystem/blockchain-ops
+
 # Stellar Quickstart Docker Image
 
 TL;DR: 
